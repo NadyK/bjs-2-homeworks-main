@@ -12,8 +12,8 @@ function solveEquation(a, b, c) {
      let x0 = -b/(2*a)
      arr=[x0]}
    else if (d<0){
-     arr=[`корней нет`]}
-  return arr; // array
+     arr=[]}
+return arr; // array
 }
 
 function calculateTotalMortgage(percent, contribution, amount, date) {
