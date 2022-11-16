@@ -5,7 +5,10 @@ function compareArrays(arr1, arr2) {
   }
   result=arr1.every((element, index) => element === arr2[index]);
   return result; // boolean
+  // можно короче:
+  // return arr1.length === arr2.length && arr1.every((item, index) => item === arr2[index]);
 }
+
 
 function advancedFilter(arr) {
   let resultArr;
