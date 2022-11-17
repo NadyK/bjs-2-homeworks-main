@@ -7,31 +7,36 @@ function Student(name, gender, age) {
 
 Student.prototype.setSubject = function (subjectName) {
   //ваш код
-  this.subjectName = subjectName; 
+  this.subject = subjectName; 
 }
 // ваш код для остальных методов
-Student.prototype.addMark = function (...mark) {
-  if(this.mark === undefined){ 
+Student.prototype.addMark = function (mark) {
+ if(this.marks === undefined){ 
     //добавить первую оценку 
-   this.mark = mark;
+   this.marks = [mark];
   } else {
       // добавить вторую и последующие оценки в массив
-     this.mark.push(mark);
+     this.marks.push(mark);
     }
 }
-Student.prototype.getAverage = function (addMark) {
-let average = addMark.reduce((acc, item, index) => {
-  acc+=item;
-  if(index === addMark.length - 1){
-    return acc / addMark.length
-  }
-  return acc;
-}, 0)
-return average
+
+Student.prototype.addMarks = function (...marks) {
+ this.marks = [marks];
 }
+
+Student.prototype.getAverage = function (addMarks) {
+  let average = addMarks.reduce((acc, item, index) => {
+    acc+=item;
+      if(index === addMarks.length - 1){
+       return acc / addMarks.length
+      }
+    return acc;
+  }, 0)
+  return average
+}
+
 Student.prototype.exclude = function (reason) {
-delete Student.prototype.addMark;
-delete Student.prototype.subjectName;
-delete Student.prototype.mark;
-return Student.reason;
+  this.excluded = reason;
+  delete this.subjectName;
+  delete this.marks;
 }
