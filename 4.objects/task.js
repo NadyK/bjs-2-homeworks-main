@@ -13,26 +13,30 @@ Student.prototype.setSubject = function (subjectName) {
 Student.prototype.addMark = function (mark) {
  if(this.marks === undefined){ 
     //добавить первую оценку 
-   this.marks = [mark];
+    this.marks = [mark];
   } else {
-      // добавить вторую и последующие оценки в массив
+     // добавить вторую и последующие оценки в массив
      this.marks.push(mark);
     }
 }
 
-Student.prototype.addMarks = function (...marks) {
- this.marks = [marks];
+Student.prototype.addMarks = function (...mark) {
+  if(this.marks === undefined){ 
+     this.marks = mark;
+  } else {
+       this.marks.push(...mark);
+    }
 }
 
-Student.prototype.getAverage = function (addMarks) {
-  let average = addMarks.reduce((acc, item, index) => {
-    acc+=item;
-      if(index === addMarks.length - 1){
-       return acc / addMarks.length
-      }
-    return acc;
-  }, 0)
-  return average
+Student.prototype.getAverage = function() {
+  if(this.marks.length === 0){
+    return 0;
+  }
+  let summ = 0;
+  for (let i = 0; i < this.marks.length; i++){
+    summ += this.marks[i];
+  }
+  return summ / this.marks.length;
 }
 
 Student.prototype.exclude = function (reason) {
