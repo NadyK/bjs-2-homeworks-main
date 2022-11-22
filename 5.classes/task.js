@@ -68,15 +68,7 @@ class Library{
       this.name =  name;
       this.books = []; 
     }
-   
-    //addBook(book){
-      //this.book = new PrintEditionItem;
-      //this.books.push(book)
-       
-     // if (this.book.state <= 30){
-      //   delete this.books(book);
-      // }
-   // }
+ 
     addBook(book) {
         this.book = new PrintEditionItem;
         if (book.state > 30) {
@@ -98,7 +90,7 @@ class Library{
     giveBookByName(bookName){
        this.bookName = bookName;
        if (bookName === this.book.name){
-        
+
        }
     }
 
