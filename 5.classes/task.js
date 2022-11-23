@@ -70,29 +70,31 @@ class Library{
     }
  
     addBook(book) {
-        this.book = new PrintEditionItem;
         if (book.state > 30) {
             this.books.push(book);
         }
     }
 
     findBookBy(type, value){
-       this.type = type;
-       this.value = value;
-       if (this.value === this.book.name){
-          return this.book;
-       } else {
-          return null;
-       }
-       
+        for (let i = 0; i < this.books.length; i++){
+           if (this.books[i][type] === value){
+             return this.books[i];
+            }else{
+             return null;
+            }
+        }
     }
     
     giveBookByName(bookName){
-       this.bookName = bookName;
-       if (bookName === this.book.name){
-
-       }
+       for (let i = 0; i < this.books.length; i++){
+        if (this.books[i]  === bookName){
+          delete this.books[i];
+          return this.books[i];
+        }else{
+         return null;
+        }
+        }
     }
-
+    
 
 }
