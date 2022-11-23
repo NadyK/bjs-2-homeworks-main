@@ -86,15 +86,12 @@ class Library{
     }
     
     giveBookByName(bookName){
-       for (let i = 0; i < this.books.length; i++){
-        if (this.books[i]  === bookName){
-          delete this.books[i];
-          return this.books[i];
-        }else{
-         return null;
-        }
-        }
+      const index = this.books.findIndex(
+        (book) =>book.name === bookName);
+       if (index !== -1){
+         return this.books.splice(index, 1)[0];
+       } else {
+         return null
+       }
     }
-    
-
 }
